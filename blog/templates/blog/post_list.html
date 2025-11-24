@@ -1,8 +1,16 @@
-<html>
-  <body>
-    <h1>Список постів</h1>
-    {% for post in posts %}
-      <div>{{ post.title }} — {{ post.created_date }}</div>
-    {% endfor %}
-  </body>
-</html>
+{% extends 'blog/base.html' %}
+
+{% block title %}Список постів{% endblock %}
+
+{% block content %}
+<h1>Список постів</h1>
+
+{% for post in posts %}
+  <div>
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.text|linebreaksbr }}</p>
+    <small>{{ post.created_date }}</small>
+  </div>
+{% endfor %}
+
+{% endblock %}
